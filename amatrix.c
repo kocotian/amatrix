@@ -1,23 +1,25 @@
 /*
-    cmatrix.c
+    amatrix.c
 
     Copyright (C) 1999-2017 Chris Allegretta
     Copyright (C) 2017-Present Abishek V Ashok
+    Copyright (C) 2021 Kacper Kocot <kocotian@kocotian.pl>
 
-    This file is part of cmatrix.
+    This file is part of amatrix.
+	amatrix is fork of cmatrix.
 
-    cmatrix is free software: you can redistribute it and/or modify
+    amatrix is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    cmatrix is distributed in the hope that it will be useful,
+    amatrix is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with cmatrix. If not, see <http://www.gnu.org/licenses/>.
+    along with amatrix. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
@@ -66,16 +68,16 @@
 #endif
 
 /* Matrix typedef */
-typedef struct cmatrix {
+typedef struct amatrix {
     int val;
     bool is_head;
-} cmatrix;
+} amatrix;
 
 /* Global variables */
 int console = 0;
 int xwindow = 0;
 int lock = 0;
-cmatrix **matrix = (cmatrix **) NULL;
+amatrix **matrix = (amatrix **) NULL;
 int *length = NULL;  /* Length of cols in each line */
 int *spaces = NULL;  /* Spaces left to fill */
 int *updates = NULL; /* What does this do again? */
@@ -137,7 +139,7 @@ void c_die(char *msg, ...) {
 }
 
 void usage(void) {
-    printf(" Usage: cmatrix -[abBcfhlsmVxk] [-u delay] [-C color] [-t tty] [-M message]\n");
+    printf(" Usage: amatrix -[abBcfhlsmVxk] [-u delay] [-C color] [-t tty] [-M message]\n");
     printf(" -a: Asynchronous scroll\n");
     printf(" -b: Bold characters on\n");
     printf(" -B: All bold characters (overrides -b)\n");
@@ -161,10 +163,10 @@ void usage(void) {
 }
 
 void version(void) {
-    printf(" CMatrix version %s (compiled %s, %s)\n",
+    printf(" AMatrix version %s (compiled %s, %s)\n",
         VERSION, __TIME__, __DATE__);
     printf("Email: abishekvashok@gmail.com\n");
-    printf("Web: https://github.com/abishekvashok/cmatrix\n");
+    printf("Web: https://github.com/abishekvashok/amatrix\n");
 }
 
 
@@ -173,7 +175,7 @@ void *nmalloc(size_t howmuch) {
     void *r;
 
     if (!(r = malloc(howmuch))) {
-        c_die("CMatrix: malloc: out of memory!");
+        c_die("AMatrix: malloc: out of memory!");
     }
 
     return r;
@@ -188,8 +190,8 @@ void var_init() {
         free(matrix);
     }
 
-    matrix = nmalloc(sizeof(cmatrix *) * (LINES + 1));
-    matrix[0] = nmalloc(sizeof(cmatrix) * (LINES + 1) * COLS);
+    matrix = nmalloc(sizeof(amatrix *) * (LINES + 1));
+    matrix[0] = nmalloc(sizeof(amatrix) * (LINES + 1) * COLS);
     for (i = 1; i <= LINES; i++) {
         matrix[i] = matrix[i - 1] + COLS;
     }
@@ -432,7 +434,7 @@ int main(int argc, char *argv[]) {
     if (tty) {
         FILE *ftty = fopen(tty, "r+");
         if (!ftty) {
-            fprintf(stderr, "cmatrix: error: '%s' couldn't be opened: %s.\n",
+            fprintf(stderr, "amatrix: error: '%s' couldn't be opened: %s.\n",
                     tty, strerror(errno));
             exit(EXIT_FAILURE);
         }
@@ -856,4 +858,3 @@ if (console) {
     }
     finish();
 }
-

@@ -1,21 +1,21 @@
-# CMatrix
+# AMatrix
 
-CMatrix is based on the screensaver from The Matrix website. It shows text
+AMatrix is based on the screensaver from The Matrix website. It shows text
 flying in and out in a terminal like as seen in "The Matrix" movie. It can
 scroll lines all at the same rate or asynchronously and at a user-defined
 speed.
 
-CMatrix by default operates in **eye candy** mode.  It must be aborted with
+AMatrix by default operates in **eye candy** mode.  It must be aborted with
 control-c (Ctrl+C) or by pressing q.  If you wish for more of a screen saver
-effect, you must specify `-s` on the command line. For usage info, use `cmatrix -h`.
+effect, you must specify `-s` on the command line. For usage info, use `amatrix -h`.
 
-[![Build Status](https://travis-ci.org/abishekvashok/cmatrix.svg?branch=master)](https://travis-ci.org/abishekvashok/cmatrix)
+[![Build Status](https://travis-ci.org/abishekvashok/amatrix.svg?branch=master)](https://travis-ci.org/abishekvashok/amatrix)
 
 ### Dependencies
 You'll probably need a decent ncurses library (or PDCurses on native Windows) to get this to work.
 
-### Building and installing cmatrix
-To install cmatrix, use either of the following methods from within the cmatrix directory.
+### Building and installing amatrix
+To install amatrix, use either of the following methods from within the amatrix directory.
 
 #### Using `configure` (recommended for most linux user)
 ```
@@ -39,34 +39,34 @@ make
 make install
 ```
 
-### Running cmatrix
-After you have installed cmatrix just run `cmatrix` to run cmatrix :)
+### Running amatrix
+After you have installed amatrix just run `amatrix` to run amatrix :)
 
-_To get the program to look most like the movie, use `cmatrix -lba`_
-_To get the program to look most like the Win/Mac screensaver, use `cmatrix -ol`_
+_To get the program to look most like the movie, use `amatrix -lba`_
+_To get the program to look most like the Win/Mac screensaver, use `amatrix -ol`_
 
 ### Valuable information
 If you have any suggestions/flames/patches to send, please feel free to
 open issues and if possible solve them in PRs via Github.
 
-_Note: cmatrix is probably not particularly portable or efficient, but it wont hog
+_Note: amatrix is probably not particularly portable or efficient, but it wont hog
 **too** much CPU time_
 
 ### Captures
 
 #### Screenshots
 
-![Special Font & bold](data/img/capture_bold_font.png?raw=true "cmatrix -bx")
+![Special Font & bold](data/img/capture_bold_font.png?raw=true "amatrix -bx")
 
 #### Screencasts
 
-![Movie-Like Cast](data/img/capture_orig.gif?raw=true "cmatrix -xba")
+![Movie-Like Cast](data/img/capture_orig.gif?raw=true "amatrix -xba")
 
 ### Maintainers
 - Abishek V Ashok (@abishekvashok) <abishekvashok@gmail.com> [Core]
 
 ### Thanks to:
-- Chris Allegretta <chrisa@asty.org> for writing cmatrix up in a fornight and giving us
+- Chris Allegretta <chrisa@asty.org> for writing amatrix up in a fornight and giving us
   the responsibility to further improve it.
 - Krisjon Hanson and Bjoern Ganslandt for helping with bold support and 
   Bjoern again for the cursor removal code, helping with the `-u` and `-l`

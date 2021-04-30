@@ -1,7 +1,7 @@
-bin_PROGRAMS = cmatrix
-cmatrix_SOURCES = cmatrix.c
+bin_PROGRAMS = amatrix
+amatrix_SOURCES = amatrix.c
 
-man_MANS = cmatrix.1
+man_MANS = amatrix.1
 
 if MATRIX_FONTS
 BUILD_FONTS = 1
@@ -11,7 +11,7 @@ endif
 
 EXTRA_DIST =	COPYING INSTALL install-sh \
 		missing mkinstalldirs matrix.fnt \
-		matrix.psf.gz mtx.pcf cmatrix.1 cmatrix.spec
+		matrix.psf.gz mtx.pcf amatrix.1 amatrix.spec
 
 install-data-local:
 	@if test $(BUILD_FONTS) = 1; then \
@@ -32,7 +32,7 @@ install-data-local:
 	    		$(MKFONTDIR) $(DESTDIR)/usr/share/fonts/misc; \
 	    		$(INSTALL_DATA) $(srcdir)/mtx.pcf  $(DESTDIR)/usr/share/fonts/misc; \
 	    		$(INSTALL_DATA) $(srcdir)/mtx.pcf  $(DESTDIR)/usr/share/fonts/misc; \
-	    		echo " Done.  If this is the first time you have installed CMatrix you will"; \
+	    		echo " Done.  If this is the first time you have installed AMatrix you will"; \
 	    		echo " probably have to restart X window in order to use the mtx.pcf font."; \
 		else \
 			if test -d /usr/X11R6/lib/X11/fonts/misc; then \
@@ -41,7 +41,7 @@ install-data-local:
 	    			$(MKFONTDIR) $(DESTDIR)/usr/X11R6/lib/X11/fonts/misc; \
 	    			$(INSTALL_DATA) $(srcdir)/mtx.pcf  $(DESTDIR)/usr/X11R6/lib/X11/fonts/misc; \
 	    			$(INSTALL_DATA) $(srcdir)/mtx.pcf  $(DESTDIR)/usr/X11R6/lib/X11/fonts/misc; \
-	    			echo " Done.  If this is the first time you have installed CMatrix you will"; \
+	    			echo " Done.  If this is the first time you have installed AMatrix you will"; \
 	    			echo " probably have to restart X window in order to use the mtx.pcf font."; \
 			fi \
 		fi; \

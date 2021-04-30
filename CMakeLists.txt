@@ -1,8 +1,8 @@
-# CMake build system for CMatrix
+# CMake build system for AMatrix
 
 cmake_minimum_required(VERSION 2.8)
 
-project(CMatrix LANGUAGES C)
+project(AMatrix LANGUAGES C)
 set(VERSION "2.0")
 
 # These are relative to CMAKE_INSTALL_PREFIX
@@ -54,11 +54,11 @@ find_package(Curses)
 include_directories(${CURSES_INCLUDE_DIR})
 add_definitions(-DHAVE_NCURSES_H)
 
-add_executable(cmatrix cmatrix.c)
+add_executable(amatrix amatrix.c)
 
-target_link_libraries(cmatrix ${CURSES_LIBRARIES})
+target_link_libraries(amatrix ${CURSES_LIBRARIES})
 
-install(TARGETS cmatrix DESTINATION bin)
+install(TARGETS amatrix DESTINATION bin)
 
 if     (UNIX)
 	foreach    (CONSOLE_FONTS_DIR ${CONSOLE_FONTS_DIRS})
@@ -81,7 +81,7 @@ if     (UNIX)
 			install(CODE
 				"execute_process(COMMAND \"${MKFONTDIR}\" \"${CMAKE_INSTALL_PREFIX}/${X_FONTS_DIR}\")")
 			install(CODE
-				"message(STATUS \"If this is the first time you have installed CMatrix you will probably have to restart X window in order to use the mtx.pcf font.\")")
+				"message(STATUS \"If this is the first time you have installed AMatrix you will probably have to restart X window in order to use the mtx.pcf font.\")")
 		endif  ()
 	endforeach ()
 endif  ()

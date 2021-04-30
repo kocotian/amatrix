@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT([cmatrix], [2.0], [abishekvashok@gmail.com])
-AC_CONFIG_SRCDIR([cmatrix.c])
+AC_INIT([amatrix], [2.0], [abishekvashok@gmail.com])
+AC_CONFIG_SRCDIR([amatrix.c])
 AM_CONFIG_HEADER(config.h)
 AM_INIT_AUTOMAKE
 
@@ -62,7 +62,7 @@ then
     AC_MSG_WARN([
 *** No termcap lib available, consider getting the official ncurses
 *** distribution from ftp://ftp.gnu.org/pub/gnu/ncurses if you get
-*** errors compiling cmatrix.])
+*** errors compiling amatrix.])
 else
     AC_MSG_RESULT("Using $CURSES_LIB_NAME as the termcap library")
 fi
@@ -78,9 +78,9 @@ if test "$ac_cv_prog_CC" = gcc -o "$ac_cv_prog_CC" = g++; then
   CFLAGS="$CFLAGS -Wall -Wno-comment"
 fi
 
-dnl cmatrix terminal font disable option (default enabled)
+dnl amatrix terminal font disable option (default enabled)
 AC_ARG_WITH([fonts],
-	AS_HELP_STRING([--without-fonts], [Install cmatrix without cmatrix font]),
+	AS_HELP_STRING([--without-fonts], [Install amatrix without amatrix font]),
 	AS_IF([test "x$with_fonts" == "xno"], [enable_fonts=false], [enable_fonts=true]),
 	[enable_fonts=true])
 
@@ -121,7 +121,7 @@ if test "x$enable_fonts" != xfalse; then
 *** consolechars and/or setfont command.  The matrix font for the console
 *** will not be installed.  This means you will not be able to use the
 *** matrix console font (and the -l command line switch) unless the font
-*** is located in your current directory when you run CMatrix.
+*** is located in your current directory when you run AMatrix.
 ])
 	      fi
 	  fi
@@ -164,4 +164,4 @@ AH_TEMPLATE([HAVE_WRESIZE], [Define this if you have the wresize function in you
 AH_TEMPLATE([HAVE_RESIZETERM], [Define this if you have the resizeterm function in your ncurses-type library])
 AH_TEMPLATE([USE_TIOCSTI], [Define this if you want a character you pressed in the screensaver mode to retain in the terminal])
 
-AC_OUTPUT(Makefile cmatrix.spec)
+AC_OUTPUT(Makefile amatrix.spec)
